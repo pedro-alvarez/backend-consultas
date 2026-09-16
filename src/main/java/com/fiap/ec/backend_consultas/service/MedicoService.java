@@ -5,6 +5,7 @@ import com.fiap.ec.backend_consultas.repository.MedicoRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class MedicoService {
@@ -26,6 +27,14 @@ public class MedicoService {
     public Medico buscarPorId(Long id) {
         return repository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Médico não encontrado"));
+    }
+
+    public Optional<Medico> buscarPorCrm(String crm) {
+        return repository.findByCrm(crm);
+    }
+
+    public List<Medico> listarPorEspecialidade(Long especialidadeId) {
+        return repository.findByEspecialidadeId(especialidadeId);
     }
 
     public Medico atualizar(Long id, Medico medico) {

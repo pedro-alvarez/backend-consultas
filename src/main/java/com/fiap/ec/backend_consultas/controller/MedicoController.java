@@ -2,6 +2,7 @@ package com.fiap.ec.backend_consultas.controller;
 
 import com.fiap.ec.backend_consultas.model.Medico;
 import com.fiap.ec.backend_consultas.service.MedicoService;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -30,6 +31,18 @@ public class MedicoController {
     @GetMapping("/{id}")
     public Medico buscarPorId(@PathVariable Long id) {
         return service.buscarPorId(id);
+    }
+
+    @GetMapping("/crm/{crm}")
+    public ResponseEntity<Medico> buscarPorCrm(@PathVariable String crm) {
+        return service.buscarPorCrm(crm)
+                .map(ResponseEntity::ok)
+                .orElse(ResponseEntity.notFound().build());
+    }
+
+    @GetMapping("/especialidade/{especialidadeId}")
+    public List<Medico> listarPorEspecialidade(@PathVariable Long especialidadeId) {
+        return service.listarPorEspecialidade(especialidadeId);
     }
 
     @PutMapping("/{id}")
