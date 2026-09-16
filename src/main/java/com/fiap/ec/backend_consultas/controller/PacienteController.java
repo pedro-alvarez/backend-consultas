@@ -1,6 +1,7 @@
 package com.fiap.ec.backend_consultas.controller;
 import java.util.List;
 
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -32,6 +33,13 @@ public class PacienteController {
     @GetMapping("/{id}")
     public Paciente buscarPorId(@PathVariable Long id) {
         return service.buscarPorId(id);
+    }
+
+    @GetMapping("/cpf/{cpf}")
+    public ResponseEntity<Paciente> buscarPorCpf(@PathVariable String cpf) {
+        return service.buscarPorCpf(cpf)
+                .map(ResponseEntity::ok)
+                .orElse(ResponseEntity.notFound().build());
     }
 
     @PutMapping("/{id}")
