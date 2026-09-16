@@ -28,8 +28,8 @@ public class DataLoader implements CommandLineRunner {
     private final PacienteRepository pacienteRepository;
 
     public DataLoader(ConsultaRepository consultaRepository,
-                       MedicoRepository medicoRepository,
-                       PacienteRepository pacienteRepository) {
+                      MedicoRepository medicoRepository,
+                      PacienteRepository pacienteRepository) {
         this.consultaRepository = consultaRepository;
         this.medicoRepository = medicoRepository;
         this.pacienteRepository = pacienteRepository;

@@ -40,7 +40,7 @@ public class Consulta {
     public Consulta() {}
 
     public Consulta(Medico medico, Paciente paciente, LocalDateTime dataHora,
-                     String status, Double valor, String observacoes) {
+                    String status, Double valor, String observacoes) {
         this.medico = medico;
         this.paciente = paciente;
         this.dataHora = dataHora;
