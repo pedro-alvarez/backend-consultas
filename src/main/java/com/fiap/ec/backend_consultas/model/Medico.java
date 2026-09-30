@@ -23,6 +23,8 @@ public class Medico {
     @Column(nullable = false)
     private Boolean ativo;
 
+    private Double valorConsulta;
+
     public Medico() {
     }
 
@@ -67,5 +69,13 @@ public class Medico {
 
     public void setAtivo(Boolean ativo) {
         this.ativo = ativo;
+    }
+
+    public Double getValorConsulta() {
+        return valorConsulta;
+    }
+
+    public void setValorConsulta(Double valorConsulta) {
+        this.valorConsulta = valorConsulta;
     }
 }
